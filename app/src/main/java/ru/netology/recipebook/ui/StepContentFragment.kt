@@ -8,11 +8,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResult
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import ru.netology.recipebook.databinding.AddOrEditStepFragmentBinding
-import ru.netology.recipebook.ui.NewRecipeFragment.Companion.textArg
 import ru.netology.recipebook.util.focusAndShowKeyboard
 import ru.netology.recipebook.viewmodel.RecipeViewModel
 
@@ -30,9 +28,7 @@ class StepContentFragment : Fragment() {
                     Intent.FLAG_GRANT_READ_URI_PERMISSION
                 )
             }
-            if (args.initialStepText != null) {
-                uri.toString().also { viewModel.currentStep.value?.picture = it }
-            } else viewModel.currentImageStep.value = uri.toString()
+            viewModel.currentImageStep.value = uri.toString()
         }
 
     override fun onCreateView(
@@ -45,8 +41,7 @@ class StepContentFragment : Fragment() {
         binding.stepContentEdit.setText(args.initialStepText)
         binding.stepContentEdit.focusAndShowKeyboard()
 
-arguments?.textArg
-    ?.let ( binding.stepContentEdit :: setText )
+
         binding.saveStep.setOnClickListener {
             onOkButtonClicked(binding)
         }
@@ -58,11 +53,11 @@ arguments?.textArg
     }.root
 
     private fun onOkButtonClicked(binding: AddOrEditStepFragmentBinding) {
-        val text = binding.stepContentEdit.text.toString()
+        val text = binding.stepContentEdit.text
 
         if (!text.isNullOrBlank()) {
             val resultBundle = Bundle(1)
-            resultBundle.putString(RESULT_KEY, text)
+            resultBundle.putString(RESULT_KEY, text.toString())
             setFragmentResult(
                 REQUEST_CURRENT_RECIPE_KEY,
                 resultBundle

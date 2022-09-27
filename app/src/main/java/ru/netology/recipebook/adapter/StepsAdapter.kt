@@ -1,5 +1,6 @@
 package ru.netology.recipebook.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.PopupMenu
@@ -59,6 +60,7 @@ internal class  StepsAdapter(
             binding.optionsStep.setOnClickListener { popupMenu.show() }
         }
 
+        @SuppressLint("SetTextI18n")
         fun bind(step: Step) {
             this.step = step
 

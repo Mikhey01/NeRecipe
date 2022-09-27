@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">RecipeBook</string>
+    <string name="recipe_book">RECIPE BOOK</string>
+
+    //
+    <string name="european_cuisine">European cuisine</string>
+    <string name="avatar_description">Author avatar</string>
+    <string name="title_recipe">Title recipe</string>
+    <string name="author_name">Author name</string>
+    <string name="Recipe_category">Recipe category</string>
+    //
+    <string name="russian_cuisine">Russian cuisine</string>
+    //
+    <string name="asian_cuisine">Asian cuisine</string>
+    <string name="oriental_cuisine">Oriental cuisine</string>
+    //
+    <string name="american_cuisine">American_cuisine</string>
+    //
+    <string name="mediterranean_cuisine">Mediterranean cuisine</string>
+    <string name="add_recipe">Add recipe</string>
+    <string name="description_post_save">Save</string>
+    <string name="menu_remove">Remove</string>
+    <string name="menu_edit">Edite</string>
+    <string name="filter">Filter</string>
+    <string name="menu_recipe">Recipe</string>
+    <string name="menu_favorites">Favorites</string>
+    <string name="select_an_image">Select an image</string>
+    <string name="share">Share</string>
+    <string name="filterTextFragment">Filter</string>
+    <string name="empty_state_text_favorite">List favorite is empty</string>
+    <string name="edit_recipe_title">Enter title</string>
+    <string name="edit_recipe_author">Enter author</string>
+    <string name="search">Search</string>
+    <string name="add_a_description_of_the_recipe">Add a description of the recipe</string>
+    <string name="there_is_nothing_here">There is nothing here</string>
+
+
+    <string-array name="category_names">
+        <item>European cuisine</item>
+        <item>Asian cuisine</item>
+        <item>Oriental cuisine</item>
+        <item>American cuisine</item>
+        <item>Russian cuisine</item>
+        <item>Mediterranean cuisine</item>
+    </string-array>
+
+
+</resources>

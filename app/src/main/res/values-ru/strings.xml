@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Книга рецептов</string>
+    <string name="recipe_book">КНИГА РЕЦЕПТОВ</string>-->
+
+    <string name="european_cuisine">Eвропейская кухня</string>
+    <string name="avatar_description">Аватар автора</string>
+    <string name="title_recipe">Название рецепта</string>
+    <string name="author_name">Имя автора</string>
+    <string name="Recipe_category">Категория рецепта</string>
+    <string name="russian_cuisine">Руская кухня</string>
+    <string name="asian_cuisine">Азиатская кухня</string>
+    <string name="oriental_cuisine">Восточная кухня</string>
+    <string name="american_cuisine">Американская кухня</string>
+    <string name="mediterranean_cuisine">Средиземноморская кухня</string>
+    <string name="add_recipe">Добавить рецепт</string>
+    <string name="description_post_save">Сохранить</string>
+    <string name="menu_remove">Удалить</string>
+    <string name="menu_edit">Изменить</string>
+    <string name="filter">Фильтр</string>
+    <string name="menu_recipe">Рецепты</string>
+    <string name="menu_favorites">Избранное</string>
+    <string name="select_an_image">Выбрать изображение</string>
+    <string name="share">Поделиться</string>
+    <string name="filterTextFragment">Фильтр</string>
+    <string name="empty_state_text_favorite">В избранном нет рецептов, но вы можете их добавить</string>
+    <string name="edit_recipe_title">Введите название рецепта</string>
+    <string name="edit_recipe_author">Введите имя автора</string>
+    <string name="search">Поиск</string>
+    <string name="add_a_description_of_the_recipe">Добавьте описание рецепта</string>
+    <string name="there_is_nothing_here">Здесь пока пусто</string>
+
+    <string-array name="category_names">
+        <item>Eвропейская кухня</item>
+        <item>Азиатская кухня</item>
+        <item>Восточная кухня</item>
+        <item>Американская кухня</item>
+        <item>Руская кухня</item>
+        <item>Средиземноморская кухня</item>
+    </string-array>
+</resources>

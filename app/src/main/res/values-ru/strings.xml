@@ -29,6 +29,7 @@
     <string name="search">Поиск</string>
     <string name="add_a_description_of_the_recipe">Добавьте описание рецепта</string>
     <string name="there_is_nothing_here">Здесь пока пусто</string>
+    <string name="nothing_was_found_in_this_category_try_to_choose_another_one">В этой категории ничего не найдено. Попробуйте выбрать другую.</string>
 
     <string-array name="category_names">
         <item>Eвропейская кухня</item>

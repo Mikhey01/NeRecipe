@@ -2,6 +2,7 @@ package ru.netology.recipebook.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -28,6 +29,7 @@ class FilterFragment : Fragment() {
         val adapterFilter = FiltersAdapter(viewModel)
         binding.filterRecycleView.adapter = adapterFilter
 
+
         adapterFilter.submitList(categoriesList)
 
         binding.selectFilter.setOnClickListener {
@@ -35,4 +37,5 @@ class FilterFragment : Fragment() {
             findNavController().popBackStack()
         }
     }.root
+
 }

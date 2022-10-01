@@ -1,7 +1,9 @@
 package ru.netology.recipebook.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -33,16 +35,19 @@ internal class FiltersAdapter(
 
         init {
             binding.checkboxCategoryFilter.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    listener.checkboxFilterPressOn(recipeCategory)
-                } else listener.checkboxFilterPressOff(recipeCategory)
+                if (!isChecked) {
+                    listener.checkboxFilterPressOff(recipeCategory)
+                } else listener.checkboxFilterPressOn(recipeCategory)
             }
         }
 
         fun bind(recipeCategory: String) {
+
             this.recipeCategory = recipeCategory
+            binding.checkboxCategoryFilter.isChecked = true
 
             with(binding) {
+
                 textCategoryFilter.text = recipeCategory
                 binding.checkboxCategoryFilter.isChecked =
                     interactionListener.getStatusCheckBox(recipeCategory)
@@ -54,8 +59,8 @@ internal class FiltersAdapter(
         override fun areItemsTheSame(oldItem: String, newItem: String) =
             oldItem == newItem
 
-
         override fun areContentsTheSame(oldItem: String, newItem: String) =
             oldItem == newItem
     }
 }
+

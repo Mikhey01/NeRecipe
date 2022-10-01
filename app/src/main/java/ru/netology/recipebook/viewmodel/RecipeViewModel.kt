@@ -29,13 +29,13 @@ class RecipeViewModel(
 
     val data by repository::data
 
-    private val filters = MutableLiveData<MutableSet<String>?>(mutableSetOf())
+     private val filters = MutableLiveData<MutableSet<String>?>(mutableSetOf())
 
     var filterResult = Transformations.switchMap(filters) { filter ->
         repository.getFilteredList(filter)
     }
     private val currentRecipe = MutableLiveData<Recipe?>(null)
-    val currentStep = MutableLiveData<Step?>(null)
+    private val currentStep = MutableLiveData<Step?>(null)
     val currentImageStep = MutableLiveData<String>("")
 
     //val shareEvent = SingleLiveEvent<String>()

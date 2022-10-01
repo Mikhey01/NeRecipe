@@ -2,11 +2,14 @@ package ru.netology.recipebook.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
+import ru.netology.recipebook.databinding.FeedFragmentBinding
 import ru.netology.recipebook.db.RecipeDao
 import ru.netology.recipebook.db.toEntity
 import ru.netology.recipebook.db.toRecipe
 import ru.netology.recipebook.dto.Recipe
 import ru.netology.recipebook.dto.Step
+import ru.netology.recipebook.ui.FeedFragment
+import ru.netology.recipebook.ui.FeedFragmentDirections
 
 class RecipeRepositoryImpl(
     private val dao: RecipeDao
@@ -14,7 +17,7 @@ class RecipeRepositoryImpl(
 
     private var nextIndexId: Long = 1
 
-    override val    data = dao.getAll().map { entities ->
+    override val data = dao.getAll().map { entities ->
         entities.map { it.toRecipe() }
     }
 
@@ -63,9 +66,11 @@ class RecipeRepositoryImpl(
     }
 
     override fun getFilteredList(filters: MutableSet<String>?): LiveData<List<Recipe>> {
+
         if (filters.isNullOrEmpty()) {
             return data
         }
+
         val filteredRecipe = data.map { recipeList ->
             val newRecipes = recipeList.filter {
                 it.recipeCategory in filters

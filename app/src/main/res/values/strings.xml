@@ -33,6 +33,7 @@
     <string name="search">Search</string>
     <string name="add_a_description_of_the_recipe">Add a description of the recipe</string>
     <string name="there_is_nothing_here">There is nothing here</string>
+    <string name="nothing_was_found_in_this_category_try_to_choose_another_one">Nothing was found in this category. Try to choose another one.</string>
 
 
     <string-array name="category_names">

@@ -8,10 +8,10 @@
 
     <TextView
         android:id="@+id/authorName"
-        android:layout_width="218dp"
-        android:layout_height="24dp"
+        android:layout_width="223dp"
+        android:layout_height="26dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="@string/author_name"
         app:layout_constraintEnd_toEndOf="@+id/titleRecipe"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,10 +20,10 @@
 
     <TextView
         android:id="@+id/recipeCategory"
-        android:layout_width="221dp"
-        android:layout_height="23dp"
+        android:layout_width="223dp"
+        android:layout_height="26dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="@string/Recipe_category"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/titleRecipe"
@@ -36,7 +36,7 @@
         android:layout_width="223dp"
         android:layout_height="26dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:text="@string/title_recipe"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,9 +44,10 @@
 
     <ImageButton
         android:id="@+id/deleted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        style="@style/Widget.AppTheme.LikeCheckbox"
+        android:layout_width="52dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="48dp"
         android:checkable="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,14 +57,14 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/addFavorites"
         style="@style/Widget.AppTheme.LikeCheckbox"
-        android:layout_width="59dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="44dp"
+        android:layout_width="52dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginBottom="4dp"
         android:checkable="true"
-        app:icon="@android:drawable/btn_star"
+        app:icon="@android:drawable/btn_star_big_on"
         app:iconGravity="textStart"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

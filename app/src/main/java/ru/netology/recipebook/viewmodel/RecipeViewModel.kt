@@ -20,7 +20,6 @@ class RecipeViewModel(
 ) : AndroidViewModel(application), RecipeInteractionListener, FilterInteractionListener,
     StepInteractionListener {
 
-    // private val repository: FileRecipeRepository = FileRecipeRepository(application)
     private val repository: RecipeRepository = RecipeRepositoryImpl(
         dao = AppDb.getInstance(
             context = application
@@ -29,7 +28,8 @@ class RecipeViewModel(
 
     val data by repository::data
 
-     private val filters = MutableLiveData<MutableSet<String>?>(mutableSetOf())
+    private val filters = MutableLiveData<MutableSet<String>?>(mutableSetOf())
+    private var setRecipeCategory = false
 
     var filterResult = Transformations.switchMap(filters) { filter ->
         repository.getFilteredList(filter)
@@ -38,12 +38,10 @@ class RecipeViewModel(
     private val currentStep = MutableLiveData<Step?>(null)
     val currentImageStep = MutableLiveData<String>("")
 
-    //val shareEvent = SingleLiveEvent<String>()
     val navigateToRecipeEditOrAddScreenEvent = SingleLiveEvent<Recipe>()
     val navigateToCurrentRecipeScreenEvent = SingleLiveEvent<Recipe>()
     val navigateToStepEditScreenEvent = SingleLiveEvent<Step>()
     val navigateToStepAddScreenEvent = SingleLiveEvent<String>()
-    //val searchEvent = SingleLiveEvent<String>()
 
     fun onSaveButtonClicked(
         title: String,
@@ -90,10 +88,6 @@ class RecipeViewModel(
         navigateToRecipeEditOrAddScreenEvent.call()
     }
 
-//    override fun searchClickListener(recipe: Recipe) {
-//        searchEvent.value = recipe.recipeCategory
-//    }
-
     fun onAddStepClicked(recipe: Recipe) {
         currentRecipe.value = recipe
         navigateToStepAddScreenEvent.call()
@@ -134,11 +128,6 @@ class RecipeViewModel(
         repository.addFavorite(recipe.id)
     }
 
-//    override fun shareClickListener(recipe: Recipe) {
-//        repository.shareById(recipe.id)
-//        shareEvent.value = recipe.content.toString()
-//    }
-
     override fun removeClickListener(recipe: Recipe) = repository.delete(recipe.id)
     override fun editClickListener(recipe: Recipe) {
         currentRecipe.value = recipe
@@ -152,18 +141,22 @@ class RecipeViewModel(
     override fun checkboxFilterPressOn(recipeCategory: String) {
         val filterList = filters.value
         filterList?.add(recipeCategory)
+        setRecipeCategory = true
         filters.value = filterList
     }
 
     override fun checkboxFilterPressOff(recipeCategory: String) {
         val filterList = filters.value
         filterList?.remove(recipeCategory)
+        setRecipeCategory = false
         filters.value = filterList
     }
 
     override fun getStatusCheckBox(recipeCategory: String): Boolean {
         return filters.value?.contains(recipeCategory) == true
     }
+
+    fun getCategoriesChecked(): Boolean = setRecipeCategory
 
     override fun removeStepClicked(step: Step) {
         repository.deleteStep(step)

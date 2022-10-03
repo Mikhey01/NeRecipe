@@ -35,17 +35,15 @@ internal class FiltersAdapter(
 
         init {
             binding.checkboxCategoryFilter.setOnCheckedChangeListener { _, isChecked ->
-                if (!isChecked) {
-                    listener.checkboxFilterPressOff(recipeCategory)
-                } else listener.checkboxFilterPressOn(recipeCategory)
+                if (isChecked) {
+                    listener.checkboxFilterPressOn(recipeCategory)
+                } else listener.checkboxFilterPressOff(recipeCategory)
             }
         }
 
         fun bind(recipeCategory: String) {
 
             this.recipeCategory = recipeCategory
-            binding.checkboxCategoryFilter.isChecked = true
-
             with(binding) {
 
                 textCategoryFilter.text = recipeCategory

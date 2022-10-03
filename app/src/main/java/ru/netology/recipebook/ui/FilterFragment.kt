@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -33,9 +34,16 @@ class FilterFragment : Fragment() {
         adapterFilter.submitList(categoriesList)
 
         binding.selectFilter.setOnClickListener {
-
-            findNavController().popBackStack()
+            checkInСheckboxes()
         }
     }.root
+
+    private fun checkInСheckboxes (){
+        if (viewModel.getCategoriesChecked()) {
+            findNavController().popBackStack()
+        } else {
+            Toast.makeText(activity, "Выберите хотя бы одну категорию", Toast.LENGTH_LONG).show()
+        }
+    }
 
 }
